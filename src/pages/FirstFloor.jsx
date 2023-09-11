@@ -142,7 +142,7 @@ const FirstFloor = () => {
 								<button
 									key={index + 1}
 									type='button'
-									className='absolute z-40 t-0 r-0 bg-red -mt-4 -ml-5 p-4 rounded-full text-grayLight'
+									className='absolute z-40 bg-red -mt-7 -ml-5 p-4 rounded-full text-grayLight'
 									style={{
 										left: `${position.left}%`,
 										top: `${position.top}%`

@@ -11,7 +11,7 @@ const ImagesCard = ({ setOpenImages }) => {
 		JSON.parse(localStorage.getItem('roomComp')) || {}
 	)
 	const [selectedImageIndex, setSelectedImageIndex] = useState(0)
-	const [change, setChange] = useState(false)
+	const [change, setChange] = useState(true)
 
 	const roomId = parseInt(value, 10)
 
@@ -43,7 +43,7 @@ const ImagesCard = ({ setOpenImages }) => {
 					left: '50%',
 					transform: 'translate(-50%, -50%)'
 				}}
-				className='bg-secondary flex rounded-xl z-40 p-6 flex-col justify-center items-center absolute'
+				className='bg-secondary flex rounded-xl z-50 p-6 flex-col justify-center items-center absolute'
 			>
 				<form style={{ display: 'flex' }} onSubmit={handleSubmit}>
 					<input
@@ -85,8 +85,10 @@ const ImagesCard = ({ setOpenImages }) => {
 													width: 'auto'
 											  }
 											: {
-													maxWidth: '800px',
-													maxHeight: '700px'
+													maxWidth: '1400px',
+													maxHeight: '800px',
+													height: 'auto',
+													width: 'auto'
 											  }
 									}
 									alt='Room'
