@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import rooms from '../db.json'
 import { ClickAwayListener } from '@mui/base/ClickAwayListener'
+import { TbExchange } from 'react-icons/tb'
 
 const ImagesCard = ({ setOpenImages }) => {
 	const [value, setValue] = useState(
@@ -10,6 +11,7 @@ const ImagesCard = ({ setOpenImages }) => {
 		JSON.parse(localStorage.getItem('roomComp')) || {}
 	)
 	const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+	const [change, setChange] = useState(false)
 
 	const roomId = parseInt(value, 10)
 
@@ -43,7 +45,7 @@ const ImagesCard = ({ setOpenImages }) => {
 				}}
 				className='bg-secondary flex rounded-xl z-40 p-6 flex-col justify-center items-center absolute'
 			>
-				<form onSubmit={handleSubmit}>
+				<form style={{ display: 'flex' }} onSubmit={handleSubmit}>
 					<input
 						value={value}
 						onChange={e => setValue(e.target.value)}
@@ -57,6 +59,13 @@ const ImagesCard = ({ setOpenImages }) => {
 					>
 						Find the room
 					</button>
+					<button
+						onClick={() => setChange(!change)}
+						className='ml-2'
+						type='button'
+					>
+						<TbExchange size={28} />
+					</button>
 				</form>
 				{roomComp && roomComp.images ? (
 					<>
@@ -67,7 +76,19 @@ const ImagesCard = ({ setOpenImages }) => {
 										process.env.PUBLIC_URL +
 										roomComp.images[selectedImageIndex].src
 									}
-									style={{ height: '700px' }}
+									style={
+										change
+											? {
+													maxWidth: '1200px',
+													maxHeight: '600px',
+													height: 'auto',
+													width: 'auto'
+											  }
+											: {
+													maxWidth: '800px',
+													maxHeight: '700px'
+											  }
+									}
 									alt='Room'
 									width='1000px'
 									height='400px'
@@ -80,6 +101,10 @@ const ImagesCard = ({ setOpenImages }) => {
 									key={image.id}
 									src={process.env.PUBLIC_URL + image.src}
 									alt='Room'
+									style={{
+										height: '100px',
+										width: '100px'
+									}}
 									width='100px'
 									height='100px'
 									onClick={() => setSelectedImageIndex(idx)}

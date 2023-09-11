@@ -73,7 +73,7 @@ const FirstFloor = () => {
 		localStorage.setItem('openImages', JSON.stringify(openImages))
 	}, [openImages])
 
-	const imgPath = '/images/plan1.jpg'
+	const imgPath = '/images/plan1.png'
 
 	return (
 		<div className='relative'>

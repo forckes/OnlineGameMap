@@ -11,12 +11,18 @@ const App = () => {
 				<Route index element={<Navigate to='home' />}></Route>
 				<Route path='home' element={<Home />}></Route>
 				<Route path='1floor' element={<FirstFloor />}></Route>
-				{/* <Route path='home' element={<Home />}></Route>
-				<Route path='movies' element={<Movies />}></Route>
-				<Route path='movies/:movieId' element={<MovieDetails />}>
-					<Route path='cast' element={<CastsList />}></Route>
-					<Route path='reviews' element={<ReviewsList />}></Route>
-				</Route> */}
+				<Route
+					path='2floor'
+					element={<div>Sorry, it's not ready yet :(</div>}
+				></Route>
+				<Route
+					path='3floor'
+					element={<div>Sorry, it's not ready yet :(</div>}
+				></Route>
+				<Route
+					path='basement'
+					element={<div>Sorry, it's not ready yet :(</div>}
+				></Route>
 			</Route>
 		</Routes>
 	)
